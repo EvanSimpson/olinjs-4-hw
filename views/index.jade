@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+
+	if (user)
+		div#login(style='display: none;')
+		div#composeTweet
+			include _newTweet
+		div#tweetFeed
+			include _feed
+	else
+		div#login
+			div#signIn
+				include _login
+		div#composeTweet(style='display: none;')
+		div#tweetFeed(style='display: none;')

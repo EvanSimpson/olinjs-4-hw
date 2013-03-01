@@ -1,0 +1,12 @@
+if tweets
+	each tweet, i in tweets
+		div.tweet
+			p.content #{tweet.text}
+			p.tweetInfo
+				| By: #{tweet.user} at #{tweet.createdAt}
+			if (user.name == tweet.user)
+				if tweets
+					p.deleteTweet
+						form(method='post', id='delete', action='/tweets/delete')
+							input(type='hidden', value= tweet.id)
+							input(type='submit', value='Delete', class='delete')
